@@ -108,31 +108,31 @@ export default {
     },
     updateProduct() {
       // console.log(this.characterProductData);
-      const id = document.getElementById("id").value;
       const name = document.getElementById("name").value;
       const price = document.getElementById("price").value;
       const description = document.getElementById("description").value;
       const updatedProductData = {
-        id,
         name,
         price,
         description
       };
       // console.log(updatedProductData);
-      fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updatedProductData)
+      return fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
+        method: "PUT"
       })
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify(updatedProductData)
+      // })
         .then(result => {
           console.log(result);
         })
         .catch(err => console.log(err))
         .then(result => {
           window.location.reload();
-        });
+        })
+      }
     },
 
     deleteProduct() {
@@ -147,7 +147,7 @@ export default {
         window.location.reload();
       });
     }
-  }
+  
 };
 </script>
 <style scoped>
