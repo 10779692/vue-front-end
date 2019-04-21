@@ -30,20 +30,32 @@
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>
+                  <!-- <div class="control">
+                    <input class="input" type="text" placeholder="Original Id" name="id" id="id">
+                  </div> -->
+                </div>
+                <br>
+                <div class="field">
                   <div class="control">
-                    <input class="input" type="text" placeholder="Id" name="editId" id="editId">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Title"
+                      name="productEditData.title"
+                      id="productEditData.title"
+                    >
                   </div>
                 </div>
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input class="input" type="text" placeholder="Title" name="title" id="title">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Price" name="price" id="price">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Price"
+                      name="productEditData.price"
+                      id="productEditData.price"
+                    >
                   </div>
                 </div>
                 <br>
@@ -53,13 +65,13 @@
                       class="input"
                       type="text"
                       placeholder="Description"
-                      name="description"
-                      id="description"
+                      name="productEditData.description"
+                      id="productEditData.description"
                     >
                   </div>
                 </div>
                 <br>
-                <b-button id="button2" @click="editProduct">Edit Product</b-button>
+                <b-button id="button2" @click="updateProduct">Update Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -94,6 +106,34 @@ export default {
         }
       );
     },
+    updateProduct() {
+      // console.log(this.characterProductData);
+      const id = document.getElementById("id").value;
+      const name = document.getElementById("name").value;
+      const price = document.getElementById("price").value;
+      const description = document.getElementById("description").value;
+      const updatedProductData = {
+        id,
+        name,
+        price,
+        description
+      };
+      // console.log(updatedProductData);
+      fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedProductData)
+      })
+        .then(result => {
+          console.log(result);
+        })
+        .catch(err => console.log(err))
+        .then(result => {
+          window.location.reload();
+        });
+    },
 
     deleteProduct() {
       const productId = document.getElementById("deleteId").value;
@@ -111,6 +151,10 @@ export default {
 };
 </script>
 <style scoped>
+
+input, select {
+  color: #3a3a3a;
+}
 #button1,
 #button2 {
   display: inline-block;
