@@ -37,25 +37,13 @@
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Title"
-                      name="title"
-                      id="title"
-                    >
+                    <input class="input" type="text" placeholder="Title" name="title" id="title">
                   </div>
                 </div>
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Price"
-                      name="price"
-                      id="price"
-                    >
+                    <input class="input" type="text" placeholder="Price" name="price" id="price">
                   </div>
                 </div>
                 <br>
@@ -105,7 +93,7 @@ export default {
     },
     updateProduct: function(productId) {
       console.log(productId);
-      const name = document.getElementById("title").value;
+      const title = document.getElementById("title").value;
       const price = document.getElementById("price").value;
       const description = document.getElementById("description").value;
       const updatedProductData = {
@@ -113,9 +101,11 @@ export default {
         price,
         description
       };
-      // console.log(updatedProductData);
+      console.log(updatedProductData);
+
       fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
         method: "PUT",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -126,21 +116,21 @@ export default {
         })
         .catch(err => console.log(err));
     },
-     deleteProduct: function(productId) {
-    console.log(productId);
-    return fetch(
-      `https://vue-crud-server.herokuapp.com/products/delete/${productId}`,
-      {
-        method: "DELETE"
-      }
-    ).then(result => {
-      window.location.reload();
-    });
+    deleteProduct: function(productId) {
+      console.log(productId);
+      return fetch(
+        `https://vue-crud-server.herokuapp.com/products/delete/${productId}`,
+        {
+          method: "DELETE"
+        }
+      ).then(result => {
+        window.location.reload();
+      });
+    }
   }
-  },
- 
 };
 </script>
+Collapse
 <style scoped>
 input,
 select {
