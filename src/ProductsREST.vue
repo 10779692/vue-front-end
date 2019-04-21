@@ -8,7 +8,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
-            <v-card dark color="primary" style="padding: 25px;">
+            <v-card dark color="#727272" style="padding: 25px;">
               <div>
                 <h3>PRODUCT: {{ products.title }}</h3>
                 <br>
@@ -25,103 +25,41 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button#1" @click="deleteProduct">Delete Product</b-button> &nbsp;
-                
-                <!-- <b-modal v-model="modalShow1">
-                  <section class="section">
-                    <div class="container">
-                      <h2 class="is-size-2">Delete Product</h2>
-                      <p>Confirm by inputting ID number.</p>
-                      <hr>
-                      <br>
-                        <div class="field">
-                          <label class="label">ID</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Id"
-                              name="_id"
-                              id="_id"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="field">
-                          <div class="control">
-                            <button class="button is-link" type="submit">Submit</button>
-                          </div>
-                        </div>
-                      <br>
-                      <br>
-                    </div>
-                  </section>
-                </b-modal>-->
-
-                <!-- This Is The Modal Section -->
-
-                <b-button id="button#2" @click="modalShow = !modalShow">Edit Product</b-button>
-                <b-modal v-model="modalShow">
-                  <section class="section">
-                    <div class="container">
-                      <h2 class="is-size-2">Edit Product</h2>
-                      <hr>
-                      <br>
-                      <form action="http://localhost:3000/products" method="POST">
-                        <div class="field">
-                          <label class="label">Name</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Title"
-                              name="title"
-                              id="title"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <div class="field">
-                          <label class="label">Price</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Price"
-                              name="price"
-                              id="price"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <div class="field">
-                          <label class="label">Description</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Description"
-                              name="description"
-                              id="description"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="field">
-                          <div class="control">
-                            <button class="button is-link" type="submit">Submit</button>
-                          </div>
-                        </div>
-                      </form>
-                      <br>
-                      <br>
-                    </div>
-                  </section>
-                </b-modal>
-
-                <!-- End Modal Section -->
+                <b-button id="button1" @click="deleteProduct">Delete Product</b-button>&nbsp;
+                <br>
+                <br>
+                <div class="field">
+                  <label class="label">To edit, please fill out the form.</label>
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Id" name="editId" id="editId">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Title" name="title" id="title">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Price" name="price" id="price">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Description"
+                      name="description"
+                      id="description"
+                    >
+                  </div>
+                </div>
+                <br>
+                <b-button id="button2" @click="editProduct">Edit Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -139,9 +77,7 @@ export default {
   data() {
     return {
       products: [],
-      loading: false,
-      modalShow: false,
-      modalShow1: false
+      loading: false
     };
   },
 
@@ -159,22 +95,33 @@ export default {
       );
     },
 
-
     deleteProduct() {
       const productId = document.getElementById("deleteId").value;
       console.log(productId);
-      return fetch(`https://vue-crud-server.herokuapp.com/products/delete/${productId}`, {
-        method: "DELETE"
-      })
-      
-        .then(result => {window.location.reload()})
+      return fetch(
+        `https://vue-crud-server.herokuapp.com/products/delete/${productId}`,
+        {
+          method: "DELETE"
+        }
+      ).then(result => {
+        window.location.reload();
+      });
     }
   }
 };
 </script>
 <style scoped>
-#button1 , #button2 {
+#button1,
+#button2 {
   display: inline-block;
+}
+#button1 {
+  background-color: #ff0000 !important;
+  color: #fff;
+}
+#button2 {
+  background-color: #14b448 !important;
+  color: #fff;
 }
 .button-section {
   padding-left: 150px;
@@ -189,20 +136,10 @@ export default {
   transform: translateY(-0.5em);
   background: #ebebeb;
 }
-
 .cards {
   column-count: 1;
   column-gap: 1em;
   margin-top: 70px;
-}
-#btn-edit {
-  background-color: darkgreen;
-  padding: 10px;
-  margin-right: 10px;
-}
-#btn-delete {
-  background-color: red;
-  padding: 10px;
 }
 .field input {
   background-color: #f3f3f3;
@@ -213,13 +150,13 @@ export default {
 }
 .field label {
   font-size: 18px;
-  color: #000000 !important;
+  color: #fff !important;
 }
 h2 {
   color: #000000 !important;
 }
 p {
-  color: #000 !important;
+  color: #fff !important;
 }
 .field button {
   background-color: #14b448;
@@ -230,8 +167,5 @@ p {
   padding-right: 30px;
   border-radius: 5px;
   font-size: 18px;
-}
-.field button:hover {
-  background-color: #149b3f;
 }
 </style>

@@ -16,7 +16,7 @@
                 <p>PRICE: ${{ item.price }}</p>
                 <p>DESCRIPTION: {{ item.desc }}</p>
                 <b-button id="button#2" @click="modalShow = !modalShow">Edit Product</b-button>&nbsp;
-                <b-button id="button#1" @click="deleteProduct">Delete Product</b-button>
+                <!-- <b-button id="button#1" @click="deleteProduct">Delete Product</b-button> -->
 
                 <!-- Begin Modal Section -->
                 <b-modal v-model="modalShow">
