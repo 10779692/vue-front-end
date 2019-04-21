@@ -16,6 +16,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 
+
 export default {
   name: "App",
   components: {

@@ -25,14 +25,14 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button1" @click="deleteProduct">Delete Product</b-button>&nbsp;
+                <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
                 <br>
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>
                   <!-- <div class="control">
                     <input class="input" type="text" placeholder="Original Id" name="id" id="id">
-                  </div> -->
+                  </div>-->
                 </div>
                 <br>
                 <div class="field">
@@ -41,8 +41,8 @@
                       class="input"
                       type="text"
                       placeholder="Title"
-                      name="productEditData.title"
-                      id="productEditData.title"
+                      name="title"
+                      id="title"
                     >
                   </div>
                 </div>
@@ -53,8 +53,8 @@
                       class="input"
                       type="text"
                       placeholder="Price"
-                      name="productEditData.price"
-                      id="productEditData.price"
+                      name="price"
+                      id="price"
                     >
                   </div>
                 </div>
@@ -65,13 +65,13 @@
                       class="input"
                       type="text"
                       placeholder="Description"
-                      name="productEditData.description"
-                      id="productEditData.description"
+                      name="description"
+                      id="description"
                     >
                   </div>
                 </div>
                 <br>
-                <b-button id="button2" @click="updateProduct">Update Product</b-button>
+                <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -80,10 +80,8 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
-
 export default {
   name: "ProductsREST",
   data() {
@@ -92,7 +90,6 @@ export default {
       loading: false
     };
   },
-
   methods: {
     getProducts: function() {
       this.loading = true;
@@ -106,53 +103,47 @@ export default {
         }
       );
     },
-    updateProduct() {
-      // console.log(this.characterProductData);
-      const name = document.getElementById("name").value;
+    updateProduct: function(productId) {
+      console.log(productId);
+      const name = document.getElementById("title").value;
       const price = document.getElementById("price").value;
       const description = document.getElementById("description").value;
       const updatedProductData = {
-        name,
+        title,
         price,
         description
       };
       // console.log(updatedProductData);
-      return fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
-        method: "PUT"
+      fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedProductData)
       })
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify(updatedProductData)
-      // })
         .then(result => {
           console.log(result);
         })
-        .catch(err => console.log(err))
-        .then(result => {
-          window.location.reload();
-        })
-      }
+        .catch(err => console.log(err));
     },
-
-    deleteProduct() {
-      const productId = document.getElementById("deleteId").value;
-      console.log(productId);
-      return fetch(
-        `https://vue-crud-server.herokuapp.com/products/delete/${productId}`,
-        {
-          method: "DELETE"
-        }
-      ).then(result => {
-        window.location.reload();
-      });
-    }
-  
+     deleteProduct: function(productId) {
+    console.log(productId);
+    return fetch(
+      `https://vue-crud-server.herokuapp.com/products/delete/${productId}`,
+      {
+        method: "DELETE"
+      }
+    ).then(result => {
+      window.location.reload();
+    });
+  }
+  },
+ 
 };
 </script>
 <style scoped>
-
-input, select {
+input,
+select {
   color: #3a3a3a;
 }
 #button1,
