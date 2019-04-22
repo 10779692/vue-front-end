@@ -130,9 +130,9 @@ export default {
             desc
           }
         })
-        .then(res => {
-          this.$router.push({ name: "HomeGraphQL" });
-        });
+        .then(result => {
+        window.location.reload();
+      });
     },
     deleteProduct: function(id) {
       console.log(id);
@@ -153,9 +153,9 @@ export default {
             id
           }
         })
-        .then(res => {
-          this.$router.push({ name: "HomeGraphQL" });
-        });
+        .then(result => {
+        window.location.reload();
+      });
     }
   }
 };
