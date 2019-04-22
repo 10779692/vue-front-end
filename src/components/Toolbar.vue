@@ -9,7 +9,7 @@
         </router-link>
         <router-link to="/productsgraphql">
           <v-btn flat>
-            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Products</a>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Edit/Delete Products</a>
           </v-btn>
         </router-link>
         <router-link to="/homerest">
