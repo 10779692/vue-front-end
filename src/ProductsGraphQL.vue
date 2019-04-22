@@ -8,77 +8,57 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
-            <v-card dark color="primary" style="padding: 25px;">
+            <v-card dark color="#727272" style="padding: 25px;">
               <div>
                 <h3>PRODUCT: {{ item.name }}</h3>
                 <br>
                 <p>ID: {{ item.id }}</p>
                 <p>PRICE: ${{ item.price }}</p>
                 <p>DESCRIPTION: {{ item.desc }}</p>
-                <b-button id="button#2" @click="modalShow = !modalShow">Edit Product</b-button>&nbsp;
-                <!-- <b-button id="button#1" @click="deleteProduct">Delete Product</b-button> -->
-
-                <!-- Begin Modal Section -->
-                <b-modal v-model="modalShow">
-                  <section class="section">
-                    <div class="container">
-                      <h2 class="is-size-2">Edit Product</h2>
-                      <hr>
-                      <br>
-                      <form action="http://localhost:3000/products" method="POST">
-                        <div class="field">
-                          <label class="label">Name</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Title"
-                              name="name"
-                              id="name"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <div class="field">
-                          <label class="label">Price</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Price"
-                              name="price"
-                              id="price"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <div class="field">
-                          <label class="label">Description</label>
-                          <div class="control">
-                            <input
-                              class="input"
-                              type="text"
-                              placeholder="Description"
-                              name="desc"
-                              id="desc"
-                            >
-                          </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="field">
-                          <div class="control">
-                            <button class="button is-link" type="submit">Submit</button>
-                          </div>
-                        </div>
-                      </form>
-                      <br>
-                      <br>
-                    </div>
-                  </section>
-                </b-modal>
-
-                <!-- End Modal Section -->
+                <div class="field">
+                  <label
+                    class="label"
+                  >To delete, confirm by inputting product id and then click delete.</label>
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Id" name="deleteId" id="deleteId">
+                  </div>
+                </div>
+                <br>
+                <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
+                <br>
+                <br>
+                <div class="field">
+                  <label class="label">To edit, please fill out the form.</label>
+                  <!-- <div class="control">
+                    <input class="input" type="text" placeholder="Original Id" name="id" id="id">
+                  </div>-->
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Title" name="name" id="name">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Price" name="price" id="price">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Description"
+                      name="desc"
+                      id="desc"
+                    >
+                  </div>
+                </div>
+                <br>
+                <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -96,8 +76,7 @@ export default {
   data() {
     return {
       myItem: [],
-      loading: false,
-      modalShow: false
+      loading: false
     };
   },
   methods: {
@@ -124,9 +103,21 @@ export default {
 };
 </script>
 <style scoped>
+input,
+select {
+  color: #3a3a3a;
+}
 #button1,
 #button2 {
   display: inline-block;
+}
+#button1 {
+  background-color: #ff0000 !important;
+  color: #fff;
+}
+#button2 {
+  background-color: #14b448 !important;
+  color: #fff;
 }
 .button-section {
   padding-left: 150px;
@@ -165,13 +156,13 @@ export default {
 }
 .field label {
   font-size: 18px;
-  color: #000000 !important;
+  color: #fff !important;
 }
 h2 {
   color: #000000 !important;
 }
 p {
-  color: #000 !important;
+  color: #fff !important;
 }
 .field button {
   background-color: #14b448;
