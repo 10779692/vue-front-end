@@ -17,7 +17,7 @@
                 <p>DESCRIPTION: {{ products.description }}</p>
                 <p>LOCATION: {{ products.location }}</p>
                 <p>EMPLOYEE: {{ products.employee }}</p>
-                <br>
+                <hr>
                 <div class="field">
                   <label
                     class="label"
@@ -28,7 +28,7 @@
                 </div>
                 <br>
                 <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
-                <br>
+                <hr>
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>

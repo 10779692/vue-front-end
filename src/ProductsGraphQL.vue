@@ -15,6 +15,9 @@
                 <p>ID: {{ item.id }}</p>
                 <p>PRICE: ${{ item.price }}</p>
                 <p>DESCRIPTION: {{ item.desc }}</p>
+                <p>LOCATION: {{ item.location }}</p>
+                <p>EMPLOYEE: {{ item.employee }}</p>
+                <hr>
                 <div class="field">
                   <label
                     class="label"
@@ -25,7 +28,7 @@
                 </div>
                 <br>
                 <b-button id="button1" @click="deleteProduct(item.id)">Delete Product</b-button>&nbsp;
-                <br>
+                <hr>
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>
@@ -52,6 +55,18 @@
                       name="desc"
                       id="desc"
                     >
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Location" name="location" id="location">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
                   </div>
                 </div>
                 <br>
@@ -87,6 +102,8 @@ export default {
                 name
                 price
                 desc
+                location
+                employee
               }
             }
           `
@@ -100,6 +117,8 @@ export default {
       const name = document.getElementById("name").value;
       const price = parseInt(document.getElementById("price").value);
       const desc = document.getElementById("desc").value;
+      const location = document.getElementById("location").value;
+      const employee = document.getElementById("employee").value;
       console.log(price);
       console.log(id);
       this.$apollo
@@ -110,15 +129,19 @@ export default {
               $name: String
               $price: Int
               $desc: String
+              $location: String
+              $employee: String
             ) {
               updateProduct(
-                data: { name: $name, price: $price, desc: $desc }
+                data: { name: $name, price: $price, desc: $desc, location: $location, employee: $employee }
                 where: { id: $id }
               ) {
                 id
                 name
                 price
                 desc
+                location
+                employee
               }
             }
           `,
@@ -127,7 +150,9 @@ export default {
             id,
             name,
             price,
-            desc
+            desc,
+            location,
+            employee
           }
         })
         .then(result => {
@@ -145,6 +170,8 @@ export default {
                 name
                 price
                 desc
+                location
+                employee
               }
             }
           `,

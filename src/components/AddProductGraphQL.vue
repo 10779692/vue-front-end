@@ -27,6 +27,20 @@
           </div>
         </div>
         <br>
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Location" name="location" id="location">
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <label class="label">Employee</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
+          </div>
+        </div>
+        <br>
         <br>
         <div class="field">
           <div class="control">
@@ -51,6 +65,8 @@ export default {
       const name = document.getElementById("name").value;
       const price = parseInt(document.getElementById("price").value);
       const desc = document.getElementById("desc").value;
+      const location = document.getElementById("location").value;
+      const employee = document.getElementById("employee").value;
       console.log(typeof price);
       this.$apollo
         .mutate({
@@ -59,17 +75,23 @@ export default {
                 $name: String
                 $price: Int
                 $desc: String
+                $location: String
+                $employee: String
                 ) {
                     createProduct(
                         data: {
                             name: $name
                             price: $price
                             desc: $desc
+                            location: $location
+                            employee: $employee
                         }
                     ) {
                         name
                         price
                         desc
+                        location
+                        employee
                     }
                 }
                 `,
@@ -77,13 +99,14 @@ export default {
           variables: {
             name: name,
             price: price,
-            desc: desc
+            desc: desc,
+            location: location,
+            employee: employee
           }
         })
-        .then(res => {
-          this.$router
-            .push({ name: "HomeGraphQL" });
-        });
+        .then(result => {
+        window.location.reload();
+      });
     }
   }
 };
