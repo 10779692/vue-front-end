@@ -1,29 +1,26 @@
-# my-app
+# Apple Product Store Back Log
 
-## Project setup
+## To Run Front End
+```
+git clone: https://github.com/10779692/vue-front-end.git
+```
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## To Run GraphQL Prisma Server
 ```
-npm run build
+git clone: https://github.com/10779692/node-api-server.git
 ```
-
-### Run your tests
 ```
-npm run test
+npm install
+npm run dockerStart
+docker-compose up -d
+npm run deploy
+docker-compose up -d
+npm run start
+npm run load
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## To Run REST Server
+The rest server is already deployed and running on: https://vue-crud-server.herokuapp.com/
