@@ -24,7 +24,7 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button1" @click="deleteProduct(id)">Delete Product</b-button>&nbsp;
+                <b-button id="button1" @click="deleteProduct(item.id)">Delete Product</b-button>&nbsp;
                 <br>
                 <br>
                 <div class="field">
@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button2" @click="updateProduct(id)">Update Product</b-button>
+                <b-button id="button2" @click="updateProduct(item.id)">Update Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -95,62 +95,68 @@ export default {
           console.log(res.data.products);
           this.myItem = res.data.products;
         });
-    }, 
-
-
-    // UPDATE 
-
-
+    },
     updateProduct: function(id) {
       const name = document.getElementById("name").value;
       const price = parseInt(document.getElementById("price").value);
       const desc = document.getElementById("desc").value;
-      console.log(typeof price);
+      console.log(price);
+      console.log(id);
       this.$apollo
         .mutate({
           mutation: gql`
             mutation updateProduct(
-                $name: String
-                $price: Int
-                $desc: String
-                ) {
-                    updateProduct(
-                        data: {
-                            name: $name
-                            price: $price
-                            desc: $desc
-                        }
-                    ) {
-                        id
-                        name
-                        price
-                        desc
-                    }
-                }
-                `,
-                
+              $id: ID
+              $name: String
+              $price: Int
+              $desc: String
+            ) {
+              updateProduct(
+                data: { name: $name, price: $price, desc: $desc }
+                where: { id: $id }
+              ) {
+                id
+                name
+                price
+                desc
+              }
+            }
+          `,
+
           variables: {
-            id: id,
-            name: name,
-            price: price,
-            desc: desc
+            id,
+            name,
+            price,
+            desc
           }
         })
         .then(res => {
-          this.$router
-            .push({ name: "HomeGraphQL" });
+          this.$router.push({ name: "HomeGraphQL" });
         });
     },
+    deleteProduct: function(id) {
+      console.log(id);
+      this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation deleteProduct($id: ID) {
+              deleteProduct(where: { id: $id }) {
+                id
+                name
+                price
+                desc
+              }
+            }
+          `,
 
-
-
-    // DELETE
-    
-    
-    deleteProduct: function(productId) {
-        console.log(id);
+          variables: {
+            id
+          }
+        })
+        .then(res => {
+          this.$router.push({ name: "HomeGraphQL" });
+        });
     }
-
   }
 };
 </script>
