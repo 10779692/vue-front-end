@@ -116,7 +116,6 @@ export default {
         location,
         employee
       };
-
       fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
         method: "PUT",
         mode: "cors",
