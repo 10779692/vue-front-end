@@ -110,6 +110,8 @@ export default {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(updatedProductData)
+      }).then(result => {
+        window.location.reload();
       })
         .then(result => {
           console.log(result);
