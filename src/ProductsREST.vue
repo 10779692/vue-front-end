@@ -15,6 +15,8 @@
                 <p>ID: {{ products._id }}</p>
                 <p>PRICE: ${{ products.price }}</p>
                 <p>DESCRIPTION: {{ products.description }}</p>
+                <p>LOCATION: {{ products.location }}</p>
+                <p>EMPLOYEE: {{ products.employee }}</p>
                 <br>
                 <div class="field">
                   <label
@@ -56,6 +58,18 @@
                   </div>
                 </div>
                 <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Location" name="location" id="location">
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
+                  </div>
+                </div>
+                <br>
                 <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
               </div>
             </v-card>
@@ -93,10 +107,14 @@ export default {
       const title = document.getElementById("title").value;
       const price = document.getElementById("price").value;
       const description = document.getElementById("description").value;
+      const location = document.getElementById("location").value;
+      const employee = document.getElementById("employee").value;
       const updatedProductData = {
         title,
         price,
-        description
+        description,
+        location,
+        employee
       };
 
       fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {

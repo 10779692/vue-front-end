@@ -33,6 +33,19 @@
           </div>
         </div>
         <br>
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Location" name="location" id="location">
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <label class="label">Employee</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
+          </div>
+        </div>
         <br>
         <div class="field">
           <div class="control">
