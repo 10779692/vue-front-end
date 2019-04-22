@@ -8,7 +8,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
-            <v-card dark color="#727272" style="padding: 25px;">
+            <v-card dark color="#727272" style="padding: 25px; border: 3px solid #0dd16b;">
               <div>
                 <h3>PRODUCT: {{ products.title }}</h3>
                 <br>

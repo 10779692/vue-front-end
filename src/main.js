@@ -6,6 +6,8 @@ import HomeGraphQL from "./HomeGraphQL.vue";
 import ProductsGraphQL from "./ProductsGraphQL.vue";
 import HomeREST from "./HomeREST.vue";
 import ProductsREST from "./ProductsREST.vue";
+import ProductsSimplifiedREST from "./ProductsSimplifiedREST.vue";
+import ProductsEmployeeREST from "./ProductsEmployeeREST.vue";
 import { createProvider } from "./vue-apollo";
 import VModal from 'vue-js-modal'
 
@@ -16,7 +18,9 @@ const routes = [
   { path: "/", component: HomeGraphQL },
   { path: "/productsgraphql", component: ProductsGraphQL },
   { path: "/homerest", component: HomeREST },
-  { path: "/productsrest", component: ProductsREST }
+  { path: "/productsrest", component: ProductsREST },
+  { path: "/products-simplified", component: ProductsSimplifiedREST },
+  { path: "/products-employee", component: ProductsEmployeeREST }
 ];
 
 const router = new VueRouter({
