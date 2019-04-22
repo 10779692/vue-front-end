@@ -11,14 +11,14 @@
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Title" name="title" id="title">
+            <input class="input" type="text" placeholder="Product Title" name="title" id="title">
           </div>
         </div>
         <br>
         <div class="field">
           <label class="label">Price</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Price" name="price" id="price">
+            <input class="input" type="text" placeholder="Product Price" name="price" id="price">
           </div>
         </div>
         <br>
@@ -45,14 +45,15 @@
         <div class="field">
           <label class="label">Employee</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
+            <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
           </div>
         </div>
         <br>
         <div class="field">
           <div class="control">
             <!-- Submit Button -->
-            <button class="button is-link" type="submit">Submit</button>
+            <!-- <button class="button is-link" type="submit">Submit</button> -->
+            <b-button id="button-submit2" type="submit">Add Product</b-button>
           </div>
         </div>
       </form>
@@ -67,6 +68,10 @@
 
 
 <style scoped>
+#button-submit2 {
+  background-color: #14b448 !important;
+  color: #fff;
+}
 .field input {
   background-color: #f3f3f3;
   padding: 10px;
@@ -76,18 +81,5 @@
 }
 .field label {
   font-size: 18px;
-}
-.field button {
-  background-color: #14b448;
-  color: #fff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 5px;
-  font-size: 18px;
-}
-.field button:hover {
-  background-color: #149b3f;
 }
 </style>

@@ -23,10 +23,10 @@
                 <hr>
                 <div class="field">
                   <label
-                    class="label"
-                  >To delete, confirm by inputting product id and then click delete.</label>
+                    class="label" style="font-weight: bold;"
+                  >Delete Product</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Id" name="deleteId" id="deleteId">
+                    <input class="input" type="text" placeholder="Confirm With Product Id" name="deleteId" id="deleteId">
                   </div>
                 </div>
                 <br>
@@ -35,18 +35,18 @@
                 <hr>
                 <br>
                 <div class="field">
-                  <label class="label">To edit, please fill out the form.</label>
+                  <label class="label" style="font-weight: bold;">Edit Product</label>
                 </div>
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input class="input" type="text" placeholder="Title" name="title" id="title">
+                    <input class="input" type="text" placeholder="Product Title" name="title" id="title">
                   </div>
                 </div>
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input class="input" type="text" placeholder="Price" name="price" id="price">
+                    <input class="input" type="text" placeholder="Product Price" name="price" id="price">
                   </div>
                 </div>
                 <br>
@@ -70,7 +70,7 @@
                 <br>
                 <div class="field">
                   <div class="control">
-                    <input class="input" type="text" placeholder="Employee" name="employee" id="employee">
+                    <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
                   </div>
                 </div>
                 <br>
