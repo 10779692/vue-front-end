@@ -7,27 +7,37 @@
             <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Add Product</a>
           </v-btn>
         </router-link>
-        <router-link to="/productsgraphql">
+        <router-link to="/products-graphql">
           <v-btn flat>
             <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Edit/Delete Products</a>
           </v-btn>
         </router-link>
-        <router-link to="/homerest">
+        <router-link to="/products-customer-graphql">
+          <v-btn flat>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Products Customer View</a>
+          </v-btn>
+        </router-link>
+        <router-link to="/products-employee-graphql">
+          <v-btn flat>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Products Employee View</a>
+          </v-btn>
+        </router-link>
+        <router-link to="/home-rest">
           <v-btn flat>
             <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Add Product</a>
           </v-btn>
         </router-link>
-        <router-link to="/productsrest">
+        <router-link to="/products-rest">
           <v-btn flat>
             <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Edit/Delete Products</a>
           </v-btn>
         </router-link>
-        <router-link to="/products-simplified">
+        <router-link to="/products-customer-rest">
           <v-btn flat>
             <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Products Customer View</a>
           </v-btn>
         </router-link>
-        <router-link to="/products-employee">
+        <router-link to="/products-employee-rest">
           <v-btn flat>
             <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Products Employee View</a>
           </v-btn>

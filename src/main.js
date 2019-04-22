@@ -4,9 +4,11 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 import HomeGraphQL from "./HomeGraphQL.vue";
 import ProductsGraphQL from "./ProductsGraphQL.vue";
+import ProductsCustomerGraphQL from "./ProductsCustomerGraphQL.vue";
+import ProductsEmployeeGraphQL from "./ProductsEmployeeGraphQL.vue";
 import HomeREST from "./HomeREST.vue";
 import ProductsREST from "./ProductsREST.vue";
-import ProductsSimplifiedREST from "./ProductsSimplifiedREST.vue";
+import ProductsCustomerREST from "./ProductsCustomerREST.vue";
 import ProductsEmployeeREST from "./ProductsEmployeeREST.vue";
 import { createProvider } from "./vue-apollo";
 import VModal from 'vue-js-modal'
@@ -16,11 +18,13 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: "/", component: HomeGraphQL },
-  { path: "/productsgraphql", component: ProductsGraphQL },
-  { path: "/homerest", component: HomeREST },
-  { path: "/productsrest", component: ProductsREST },
-  { path: "/products-simplified", component: ProductsSimplifiedREST },
-  { path: "/products-employee", component: ProductsEmployeeREST }
+  { path: "/products-graphql", component: ProductsGraphQL },
+  { path: "/products-customer-graphql", component: ProductsCustomerGraphQL },
+  { path: "/products-employee-graphql", component: ProductsEmployeeGraphQL },
+  { path: "/home-rest", component: HomeREST },
+  { path: "/products-rest", component: ProductsREST },
+  { path: "/products-customer-rest", component: ProductsCustomerREST },
+  { path: "/products-employee-rest", component: ProductsEmployeeREST }
 ];
 
 const router = new VueRouter({
