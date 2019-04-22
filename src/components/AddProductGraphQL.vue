@@ -1,3 +1,5 @@
+<!-- /components/AddProductsGraphQL.vue -->
+
 <template>
   <section class="section">
     <div class="container">
@@ -44,6 +46,7 @@
         <br>
         <div class="field">
           <div class="control">
+            <!-- Submit Button -->
             <button class="button is-link" @click="createProduct">Submit</button>
           </div>
         </div>

@@ -1,3 +1,5 @@
+<!-- ProductsEmployeeGraphQL.vue -->
+
 <template>
   <div id="ProductsGraphQL">
     <div class="button-section">
@@ -8,6 +10,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
+            <!-- Card Starts Here -->
             <v-card dark color="#727272" style="padding: 25px;border: 3px solid #0ac7d8;">
               <div>
                 <h3>PRODUCT: {{ item.name }}</h3>
@@ -17,6 +20,7 @@
                 <p>LOCATION: {{ item.location }}</p>
                 <p>EMPLOYEE: {{ item.employee }}</p>
               </div>
+              <!-- Card Ends Here -->
             </v-card>
           </v-flex>
         </v-layout>
@@ -37,6 +41,7 @@ export default {
     };
   },
   methods: {
+    // Query Products for Employee View
     getAllGraphql: function() {
       this.$apollo
         .query({

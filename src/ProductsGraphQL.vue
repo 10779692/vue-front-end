@@ -1,3 +1,5 @@
+<!-- ProductsGraphQL.vue -->
+
 <template>
   <div id="ProductsGraphQL">
     <div class="button-section">
@@ -8,6 +10,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
+            <!-- Card Starts Here -->
             <v-card dark color="#727272" style="padding: 25px;border: 3px solid #0ac7d8;">
               <div>
                 <h3>PRODUCT: {{ item.name }}</h3>
@@ -27,6 +30,7 @@
                   </div>
                 </div>
                 <br>
+                <!-- Delete Button -->
                 <b-button id="button1" @click="deleteProduct(item.id)">Delete Product</b-button>&nbsp;
                 <hr>
                 <br>
@@ -70,9 +74,11 @@
                   </div>
                 </div>
                 <br>
+                <!-- Update Button -->
                 <b-button id="button2" @click="updateProduct(item.id)">Update Product</b-button>
               </div>
             </v-card>
+            <!-- Card Ends Here -->
           </v-flex>
         </v-layout>
       </v-container>
@@ -92,6 +98,7 @@ export default {
     };
   },
   methods: {
+    // Query Products
     getAllGraphql: function() {
       this.$apollo
         .query({
@@ -113,6 +120,7 @@ export default {
           this.myItem = res.data.products;
         });
     },
+    // Update Product
     updateProduct: function(id) {
       const name = document.getElementById("name").value;
       const price = parseInt(document.getElementById("price").value);
@@ -159,6 +167,7 @@ export default {
         window.location.reload();
       });
     },
+    // Delete Product By Id
     deleteProduct: function(id) {
       console.log(id);
       this.$apollo
@@ -180,6 +189,7 @@ export default {
             id
           }
         })
+        // Functions as an auto-reload
         .then(result => {
         window.location.reload();
       });

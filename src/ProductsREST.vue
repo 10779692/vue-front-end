@@ -1,3 +1,5 @@
+<!-- ProductsRest.vue -->
+
 <template>
   <div id="ProductsREST'">
     <div class="button-section">
@@ -8,6 +10,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
+            <!-- Card Begins Here -->
             <v-card dark color="#727272" style="padding: 25px; border: 3px solid #0dd16b;">
               <div>
                 <h3>PRODUCT: {{ products.title }}</h3>
@@ -27,6 +30,7 @@
                   </div>
                 </div>
                 <br>
+                <!-- Delete Button -->
                 <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
                 <hr>
                 <br>
@@ -70,8 +74,10 @@
                   </div>
                 </div>
                 <br>
+                <!-- Update Button -->
                 <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
               </div>
+              <!-- Card Ends Here -->
             </v-card>
           </v-flex>
         </v-layout>
@@ -90,6 +96,7 @@ export default {
     };
   },
   methods: {
+    // Get All Products
     getProducts: function() {
       this.loading = true;
       axios.get("https://vue-crud-server.herokuapp.com/products").then(
@@ -102,6 +109,7 @@ export default {
         }
       );
     },
+    // Update Product
     updateProduct: function(productId) {
       console.log(productId);
       const title = document.getElementById("title").value;
@@ -131,6 +139,7 @@ export default {
         })
         .catch(err => console.log(err));
     },
+    // Delete Product By Id
     deleteProduct: function(productId) {
       console.log(productId);
       return fetch(
@@ -138,6 +147,7 @@ export default {
         {
           method: "DELETE"
         }
+        // Functions as an auto-reload
       ).then(result => {
         window.location.reload();
       });

@@ -1,3 +1,5 @@
+<!-- /components/AddProductREST.vue -->
+
 <template>
   <section class="section">
     <div class="container">
@@ -49,6 +51,7 @@
         <br>
         <div class="field">
           <div class="control">
+            <!-- Submit Button -->
             <button class="button is-link" type="submit">Submit</button>
           </div>
         </div>

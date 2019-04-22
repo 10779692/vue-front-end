@@ -1,3 +1,5 @@
+<!-- ProductsCustomerREST.vue -->
+
 <template>
   <div id="ProductsREST'">
     <div class="button-section">
@@ -8,6 +10,7 @@
       <v-container grid-list-xl>
         <v-layout>
           <v-flex>
+            <!-- Card Starts Here -->
             <v-card dark color="#727272" style="padding: 25px;border: 3px solid #0dd16b;">
               <div>
                 <h3>PRODUCT: {{ products.title }}</h3>
@@ -15,6 +18,7 @@
                 <p>PRICE: ${{ products.price }}</p>
                 <p>DESCRIPTION: {{ products.description }}</p>
               </div>
+              <!-- Card Ends Here -->
             </v-card>
           </v-flex>
         </v-layout>
@@ -33,6 +37,7 @@ export default {
     };
   },
   methods: {
+    // Query Products for Customer View
     getProducts: function() {
       this.loading = true;
       axios.get("https://vue-crud-server.herokuapp.com/products").then(

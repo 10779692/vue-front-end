@@ -1,3 +1,5 @@
+<!-- App.vue -->
+
 <template>
   <v-app>
     <v-content>

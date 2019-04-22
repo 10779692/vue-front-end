@@ -1,3 +1,5 @@
+// main.js
+
 import Vue from "vue";
 import "./plugins/vuetify";
 import App from "./App.vue";
@@ -16,6 +18,7 @@ import VModal from 'vue-js-modal'
 Vue.use(VModal)
 Vue.use(VueRouter);
 
+// Routes for /components/Toolbar.vue
 const routes = [
   { path: "/", component: HomeGraphQL },
   { path: "/products-graphql", component: ProductsGraphQL },

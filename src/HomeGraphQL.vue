@@ -1,3 +1,5 @@
+<!-- HomeGraphQL.vue -->
+
 <template>
   <v-app>
     <v-content>
