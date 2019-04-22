@@ -24,14 +24,11 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
+                <b-button id="button1" @click="deleteProduct(id)">Delete Product</b-button>&nbsp;
                 <br>
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>
-                  <!-- <div class="control">
-                    <input class="input" type="text" placeholder="Original Id" name="id" id="id">
-                  </div>-->
                 </div>
                 <br>
                 <div class="field">
@@ -58,7 +55,7 @@
                   </div>
                 </div>
                 <br>
-                <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
+                <b-button id="button2" @click="updateProduct(id)">Update Product</b-button>
               </div>
             </v-card>
           </v-flex>
@@ -98,7 +95,62 @@ export default {
           console.log(res.data.products);
           this.myItem = res.data.products;
         });
+    }, 
+
+
+    // UPDATE 
+
+
+    updateProduct: function(id) {
+      const name = document.getElementById("name").value;
+      const price = parseInt(document.getElementById("price").value);
+      const desc = document.getElementById("desc").value;
+      console.log(typeof price);
+      this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation updateProduct(
+                $name: String
+                $price: Int
+                $desc: String
+                ) {
+                    updateProduct(
+                        data: {
+                            name: $name
+                            price: $price
+                            desc: $desc
+                        }
+                    ) {
+                        id
+                        name
+                        price
+                        desc
+                    }
+                }
+                `,
+                
+          variables: {
+            id: id,
+            name: name,
+            price: price,
+            desc: desc
+          }
+        })
+        .then(res => {
+          this.$router
+            .push({ name: "HomeGraphQL" });
+        });
+    },
+
+
+
+    // DELETE
+    
+    
+    deleteProduct: function(productId) {
+        console.log(id);
     }
+
   }
 };
 </script>

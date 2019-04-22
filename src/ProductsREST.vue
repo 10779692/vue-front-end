@@ -30,9 +30,6 @@
                 <br>
                 <div class="field">
                   <label class="label">To edit, please fill out the form.</label>
-                  <!-- <div class="control">
-                    <input class="input" type="text" placeholder="Original Id" name="id" id="id">
-                  </div>-->
                 </div>
                 <br>
                 <div class="field">
@@ -101,7 +98,6 @@ export default {
         price,
         description
       };
-      console.log(updatedProductData);
 
       fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
         method: "PUT",
@@ -132,7 +128,6 @@ export default {
   }
 };
 </script>
-Collapse
 <style scoped>
 input,
 select {

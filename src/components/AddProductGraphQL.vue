@@ -52,7 +52,6 @@ export default {
       const price = parseInt(document.getElementById("price").value);
       const desc = document.getElementById("desc").value;
       console.log(typeof price);
-
       this.$apollo
         .mutate({
           mutation: gql`
