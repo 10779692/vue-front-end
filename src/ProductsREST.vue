@@ -153,7 +153,10 @@ export default {
         .then(result => {
           console.log(result);
         })
-        .catch(err => console.log(err));
+        .then(result => {
+        window.location.reload();
+      });
+        
     },
     // Delete Product By Id
     deleteProduct: function(productId) {
