@@ -2,10 +2,58 @@
 
 <template>
   <div id="ProductsREST'">
+    <v-container grid-list-xl>
+        <v-layout>
+          <v-flex>
     <div class="button-section">
       <h2>Click the button to get REST API data</h2>
       <button id="btn" class v-on:click="getProducts">Get Data</button>
     </div>
+<br>
+    <div class="field-1">
+      <h2 class="label" style="font-weight: bold;">Edit Product</h2>
+    </div>
+    <br>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Product Title" name="title" id="title">
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Product Price" name="price" id="price">
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Description"
+          name="description"
+          id="description"
+        >
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Location" name="location" id="location">
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
+      </div>
+    </div>
+    <br>
+          </v-flex>
+        </v-layout>
+    </v-container>
+
     <div v-for="products in products" :key="products.id">
       <v-container grid-list-xl>
         <v-layout>
@@ -22,57 +70,21 @@
                 <p>EMPLOYEE: {{ products.employee }}</p>
                 <hr>
                 <div class="field">
-                  <label
-                    class="label" style="font-weight: bold;"
-                  >Delete Product</label>
+                  <label class="label" style="font-weight: bold;">Delete Product</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Confirm With Product Id" name="deleteId" id="deleteId">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Confirm With Product Id"
+                      name="deleteId"
+                      id="deleteId"
+                    >
                   </div>
                 </div>
                 <br>
                 <!-- Delete Button -->
                 <b-button id="button1" @click="deleteProduct(products._id)">Delete Product</b-button>&nbsp;
                 <hr>
-                <br>
-                <div class="field">
-                  <label class="label" style="font-weight: bold;">Edit Product</label>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Product Title" name="title" id="title">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Product Price" name="price" id="price">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Description"
-                      name="description"
-                      id="description"
-                    >
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Location" name="location" id="location">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
-                  </div>
-                </div>
                 <br>
                 <!-- Update Button -->
                 <b-button id="button2" @click="updateProduct(products._id)">Update Product</b-button>
@@ -111,7 +123,6 @@ export default {
     },
     // Update Product
     updateProduct: function(productId) {
-      console.log(productId);
       const title = document.getElementById("title").value;
       const price = document.getElementById("price").value;
       const description = document.getElementById("description").value;
@@ -124,15 +135,14 @@ export default {
         location,
         employee
       };
+      console.log(updatedProductData);
       fetch(`https://vue-crud-server.herokuapp.com/products/${productId}`, {
         method: "PUT",
-        mode: "cors",
+        // mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(updatedProductData)
-      }).then(result => {
-        window.location.reload();
       })
         .then(result => {
           console.log(result);
@@ -216,5 +226,9 @@ p {
   padding-right: 30px;
   border-radius: 5px;
   font-size: 18px;
+}
+.field-1 label {
+  color: #000000;
+
 }
 </style>
