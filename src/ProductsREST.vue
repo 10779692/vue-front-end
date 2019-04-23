@@ -3,55 +3,61 @@
 <template>
   <div id="ProductsREST'">
     <v-container grid-list-xl>
-        <v-layout>
-          <v-flex>
-    <div class="button-section">
-      <h2>Click the button to get REST API data</h2>
-      <button id="btn" class v-on:click="getProducts">Get Data</button>
-    </div>
-<br>
-    <div class="field-1">
-      <h2 class="label" style="font-weight: bold;">Edit Product</h2>
-    </div>
-    <br>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Product Title" name="title" id="title">
-      </div>
-    </div>
-    <br>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Product Price" name="price" id="price">
-      </div>
-    </div>
-    <br>
-    <div class="field">
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Description"
-          name="description"
-          id="description"
-        >
-      </div>
-    </div>
-    <br>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Location" name="location" id="location">
-      </div>
-    </div>
-    <br>
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
-      </div>
-    </div>
-    <br>
-          </v-flex>
-        </v-layout>
+      <v-layout>
+        <v-flex>
+          <div class="button-section">
+            <h2>Click the button to get REST API data</h2>
+            <button id="btn" class v-on:click="getProducts">Get Data</button>
+          </div>
+          <br>
+          <div class="field-1">
+            <h2 class="label" style="font-weight: bold;">Edit Product</h2>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Product Title" name="title" id="title">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Product Price" name="price" id="price">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Description"
+                name="description"
+                id="description"
+              >
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Location" name="location" id="location">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Employee Name"
+                name="employee"
+                id="employee"
+              >
+            </div>
+          </div>
+          <br>
+        </v-flex>
+      </v-layout>
     </v-container>
 
     <div v-for="products in products" :key="products.id">
@@ -227,8 +233,7 @@ p {
   border-radius: 5px;
   font-size: 18px;
 }
-.field-1 label {
+.field-1 h2 {
   color: #000000;
-
 }
 </style>

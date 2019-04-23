@@ -2,10 +2,56 @@
 
 <template>
   <div id="ProductsGraphQL">
-    <div class="button-section">
-      <h2>Click the button to get Prisma GraphQL data</h2>
-      <button id="btn" class v-on:click="getAllGraphql">Get Data</button>
-    </div>
+    <v-container grid-list-xl>
+      <v-layout>
+        <v-flex>
+          <div class="button-section">
+            <h2>Click the button to get Prisma GraphQL data</h2>
+            <button id="btn" class v-on:click="getAllGraphql">Get Data</button>
+          </div>
+          <br>
+          <div class="field-1">
+            <h2 class="label" style="font-weight: bold;">Edit Product</h2>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Product Title" name="name" id="name">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Product Price" name="price" id="price">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Description" name="desc" id="desc">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Location" name="location" id="location">
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Employee Name"
+                name="employee"
+                id="employee"
+              >
+            </div>
+          </div>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <div v-for="item in myItem" :key="item.id">
       <v-container grid-list-xl>
         <v-layout>
@@ -22,57 +68,21 @@
                 <p>EMPLOYEE: {{ item.employee }}</p>
                 <hr>
                 <div class="field">
-                  <label
-                    class="label" style="font-weight: bold;"
-                  >Delete Product</label>
+                  <label class="label" style="font-weight: bold;">Delete Product</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Confirm With Product Id" name="deleteId" id="deleteId">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Confirm With Product Id"
+                      name="deleteId"
+                      id="deleteId"
+                    >
                   </div>
                 </div>
                 <br>
                 <!-- Delete Button -->
                 <b-button id="button1" @click="deleteProduct(item.id)">Delete Product</b-button>&nbsp;
                 <hr>
-                <br>
-                <div class="field">
-                  <label class="label" style="font-weight: bold;">Edit Product</label>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Product Title" name="name" id="name">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Product Price" name="price" id="price">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Description"
-                      name="desc"
-                      id="desc"
-                    >
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Location" name="location" id="location">
-                  </div>
-                </div>
-                <br>
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Employee Name" name="employee" id="employee">
-                  </div>
-                </div>
                 <br>
                 <!-- Update Button -->
                 <b-button id="button2" @click="updateProduct(item.id)">Update Product</b-button>
@@ -141,7 +151,13 @@ export default {
               $employee: String
             ) {
               updateProduct(
-                data: { name: $name, price: $price, desc: $desc, location: $location, employee: $employee }
+                data: {
+                  name: $name
+                  price: $price
+                  desc: $desc
+                  location: $location
+                  employee: $employee
+                }
                 where: { id: $id }
               ) {
                 id
@@ -164,8 +180,8 @@ export default {
           }
         })
         .then(result => {
-        window.location.reload();
-      });
+          window.location.reload();
+        });
     },
     // Delete Product By Id
     deleteProduct: function(id) {
@@ -191,8 +207,8 @@ export default {
         })
         // Functions as an auto-reload
         .then(result => {
-        window.location.reload();
-      });
+          window.location.reload();
+        });
     }
   }
 };
@@ -271,5 +287,8 @@ p {
 }
 .field button:hover {
   background-color: #149b3f;
+}
+.field-1 label {
+  color: #000000;
 }
 </style>
