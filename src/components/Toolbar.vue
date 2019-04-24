@@ -7,31 +7,49 @@
         <!-- HomeGraphQL.vue -->
         <router-link to="/">
           <v-btn flat>
-            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Home</a>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Add Product</a>
           </v-btn>
         </router-link>
         <!-- ProductsGraphQL.vue -->
-        <router-link to="/about-me">
+        <router-link to="/products-graphql">
           <v-btn flat>
-            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">About Me</a>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Edit/Delete Products</a>
           </v-btn>
         </router-link>
         <!-- ProductsCustomerGraphQL.vue -->
-        <router-link to="/web-development">
+        <router-link to="/products-customer-graphql">
           <v-btn flat>
-            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Web Development</a>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Products Customer View</a>
           </v-btn>
         </router-link>
         <!-- ProductsEmployeeGraphQL.vue -->
-        <router-link to="/ux-design">
+        <router-link to="/products-employee-graphql">
           <v-btn flat>
-            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">UX Design</a>
+            <a style="color:#0ac7d8;text-transform:lowercase;font-size:12px;">Products Employee View</a>
           </v-btn>
         </router-link>
         <!-- HomeREST.vue -->
-        <router-link to="/contact">
+        <router-link to="/home-rest">
           <v-btn flat>
-            <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Contact</a>
+            <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Add Product</a>
+          </v-btn>
+        </router-link>
+        <!-- ProductsREST.vue -->
+        <router-link to="/products-rest">
+          <v-btn flat>
+            <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Edit/Delete Products</a>
+          </v-btn>
+        </router-link>
+        <!-- ProductsCustomerREST.vue -->
+        <router-link to="/products-customer-rest">
+          <v-btn flat>
+            <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Products Customer View</a>
+          </v-btn>
+        </router-link>
+        <!-- ProductsEmployeeREST.vue -->
+        <router-link to="/products-employee-rest">
+          <v-btn flat>
+            <a style="color:#0dd16b;text-transform:lowercase;font-size:12px;">Products Employee View</a>
           </v-btn>
         </router-link>
       </div>

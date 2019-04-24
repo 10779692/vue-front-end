@@ -3,19 +3,19 @@
 <template>
   <v-app>
     <v-content>
-      <!-- <AddProductGraphQL/> -->
+      <AddProductGraphQL/>
       <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-// import AddProductGraphQL from "./components/AddProductGraphQL.vue";
+import AddProductGraphQL from "./components/AddProductGraphQL.vue";
 
 export default {
   // name: "HomeGraphQL",
   components: {
-    // AddProductGraphQL
+    AddProductGraphQL
   },
   data() {
     return {
