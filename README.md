@@ -22,4 +22,4 @@ npm run start
 npm run load
 ```
 ## To Run REST Server
-The rest server is already deployed and running on: https://vue-crud-server.herokuapp.com/# portfolio
+The rest server is already deployed and running on: https://vue-crud-server.herokuapp.com/
