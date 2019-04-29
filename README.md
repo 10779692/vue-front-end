@@ -21,5 +21,8 @@ npm run deploy
 npm run start
 npm run load
 ```
+
+On the update pages, you must fill out the form without leaving any field blank, and scroll to the product you wish to update and click Update Product.
+
 ## To Run REST Server
 The rest server is already deployed and running on: https://vue-crud-server.herokuapp.com/
